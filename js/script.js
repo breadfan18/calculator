@@ -85,10 +85,13 @@ function reset() {
 //Event listeners 
 $('.calcBody').on('click', '.numbers', setPlaceholder);
 
-$('.calcBody').on('keyup', '.numbers', setPlaceholder);
-
 $('.calcBody').on('click', '.actions', setNums);
 
 $('.calcBody').on('click', '.equals', calculate);
 
 $('.calcBody').on('click', '.reset', reset);
+
+$('body').on('keypress', function (e) {
+    if(e.key.match('^[0-9]*$')) console.log("number");
+    else if (e.key.match('^[+|-|*|/]')) console.log("operator");
+})
