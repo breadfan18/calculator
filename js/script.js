@@ -88,7 +88,6 @@ $('.calcBody').on('click', '.numbers', setPlaceholder);
 
 $('.calcBody').on('click', '.actions', setNums);
 
-
 $('.calcBody').on('click', '.equals', calculate);
 
 $('.calcBody').on('click', '.reset', reset);
