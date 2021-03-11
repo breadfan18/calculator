@@ -91,7 +91,8 @@ $('.calcBody').on('click', '.equals', calculate);
 
 $('.calcBody').on('click', '.reset', reset);
 
+
 $('body').on('keypress', function (e) {
-    if(e.key.match('^[0-9]*$')) console.log("number");
+    if(e.key.match('^[0-9]*$')) ;
     else if (e.key.match('^[+|-|*|/]')) console.log("operator");
 })
