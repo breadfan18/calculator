@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.calcBody{
+    display: flex;
+    max-width: 400px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+
+.buttons{
+    width: 100px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+
+.display {
+    width: 400px;
+    padding: 40px;
+    background-color: antiquewhite;
+    border: 1px solid black;
+}
+
