@@ -24,9 +24,18 @@ function setPlaceholder() {
     $display.text(placeholderNum);
 }
 
+function setNums(e) {
+    firstNum = parseFloat($display.text());
+    $display.text('');
+    placeholderNum = '';
+    operator = e.target.textContent;
+    $display.text(operator);
+}
 
 function calculate() {
-    secondNum = parseInt($display.text());
+    secondNum = parseFloat($display.text());
+    console.log(firstNum)
+    console.log(secondNum);;
     switch (operator) {
         case '+':
             $display.text(`${add(firstNum, secondNum)}`);
@@ -43,7 +52,12 @@ function calculate() {
         default:
             break;
     }
+
+    firstNum = 0;
+    secondNum = 0;
+    placeholderNum = '';
 }
+
 
 function add(a, b) {
     return a + b;
@@ -72,12 +86,7 @@ function reset() {
 //Event listeners 
 $('.calcBody').on('click', '.numbers', setPlaceholder);
 
-$('.calcBody').on('click', '.actions', function (e) {
-    firstNum = parseInt($display.text());
-    $display.text('');
-    placeholderNum = '';
-    operator = e.target.textContent;
-});
+$('.calcBody').on('click', '.actions', setNums);
 
 
 $('.calcBody').on('click', '.equals', calculate);
