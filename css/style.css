@@ -1,6 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+:root {
+    --buttonColor: rgb(180, 175, 175);
+    --actionsColor: rgb(243, 173, 93);
+}
+
 * {
     box-sizing: border-box;
-    margin: 0;
+    margin: 0 auto;
+    font-family: 'Roboto', sans-serif;
+}
+
+.topHeader{
+    display: flex;
+    justify-content: center;
+    font-size: 100px;
+    margin-bottom: 40px;
+    background-color: black;
+    color: var(--actionsColor);
+    padding: 10px;
+}
+
+.main {
+    border: 10px solid black;
+    max-width: 420px;
 }
 
 .calcBody{
@@ -8,22 +31,54 @@
     max-width: 400px;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
     font-size: 30px;
 }
 
 .buttons{
+    display: flex;
     width: 100px;
-    text-align: center;
+    justify-content: center;
+    align-items: center;
     border: 1px solid black;
+    height: 70px;
+    cursor: pointer;
 }
 
+.numbers:hover {
+    background-color: rgba(180, 175, 175, 0.7);
+}
 
-.display {
+.actions:hover{
+    background-color: rgba(243, 173, 93, 0.6);
+}
+
+.reset:hover{
+    background-color: rgba(240, 138, 120, 0.6);
+}
+
+.display {  
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
     width: 400px;
-    padding: 40px;
-    background-color: antiquewhite;
+    height: 100px;
+    padding: 20px;
+    background-color: rgb(112, 111, 110);
     border: 1px solid black;
+    font-size: 70px;
+    color: #fff;
+    text-align: right;
 }
 
+.numbers {
+    background-color: var(--buttonColor);
+}
+
+.actions, .equals{
+    background-color: var(--actionsColor);
+}
+
+.reset {
+    background-color: rgb(240, 138, 120);
+    font-weight: bold;
+}
