@@ -16,7 +16,6 @@ let placeholderNum = '',
 
 let $display = $('.display');
 
-
 //functions 
 function setPlaceholder() {
     placeholderNum = (placeholderNum + $(this).text());
@@ -25,12 +24,9 @@ function setPlaceholder() {
 
 function setNums(e) {
     console.log("it got here");
-    console.log(operator);
     firstNum = $display.val();
     $display.val('');
     placeholderNum = '';
-
-    console.log(operator);
     $display.val(operator);
 }
 
@@ -51,6 +47,9 @@ function calculate() {
         case '/':
             $display.val(`${divide(firstNum, secondNum)}`);
             break;
+        case '÷':
+            $display.val(`${divide(firstNum, secondNum)}`);
+            break;
         default:
             break;
     }
@@ -62,19 +61,19 @@ function calculate() {
 
 
 function add(a, b) {
-    return parseFloat(a + b).toFixed(2);
+    return parseFloat(a) + parseFloat(b);
 }
 
 function substract(a, b) {
-    return parseFloat(a - b).toFixed(2);
+    return parseFloat(parseFloat(a) - parseFloat(b)).toFixed(2);
 }
 
 function multiply(a, b) {
-    return parseFloat(a * b).toFixed(2);
+    return parseFloat(parseFloat(a) * parseFloat(b)).toFixed(2);
 }
 
 function divide(a, b) {
-    return parseFloat(a / b).toFixed(2);
+    return parseFloat(parseFloat(a) / parseFloat(b)).toFixed(2);
 }
 
 function reset() {
@@ -102,11 +101,10 @@ $('body').on('keypress', function (e) {
     if (e.key.match('^[0-9.]*$')) {
         placeholderNum = placeholderNum + e.key;
         $display.val(placeholderNum);
-    } else if (e.key.match('^[+|-|*|/]')) {
+    } else if (e.key.match('^[\-|+|*|/]')) {
         operator = e.key;
-        console.log(operator);
         setNums();
-    }else if(e.keyCode === 13){
+    } else if (e.keyCode === 13) {
         calculate();
     };
 });
