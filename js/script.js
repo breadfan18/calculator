@@ -22,8 +22,7 @@ function setPlaceholder() {
     $display.val(placeholderNum);
 }
 
-function setNums(e) {
-    console.log("it got here");
+function setNums() {
     firstNum = $display.val();
     $display.val('');
     placeholderNum = '';
