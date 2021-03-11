@@ -12,7 +12,6 @@ Calculator logic
 let placeholderNum = '',
     firstNum = 0,
     secondNum = 0,
-    numArr = [],
     operator = '';
 
 let $display = $('.display');
@@ -85,6 +84,8 @@ function reset() {
 
 //Event listeners 
 $('.calcBody').on('click', '.numbers', setPlaceholder);
+
+$('.calcBody').on('keyup', '.numbers', setPlaceholder);
 
 $('.calcBody').on('click', '.actions', setNums);
 
