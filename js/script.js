@@ -20,33 +20,36 @@ let $display = $('.display');
 //functions 
 function setPlaceholder() {
     placeholderNum = (placeholderNum + $(this).text());
-    $display.text(placeholderNum);
+    $display.val(placeholderNum);
 }
 
 function setNums(e) {
-    firstNum = parseFloat($display.text());
-    $display.text('');
+    console.log("it got here");
+    console.log(operator);
+    firstNum = $display.val();
+    $display.val('');
     placeholderNum = '';
-    operator = e.target.textContent;
-    $display.text(operator);
+
+    console.log(operator);
+    $display.val(operator);
 }
 
 function calculate() {
-    secondNum = parseFloat($display.text());
+    secondNum = $display.val();
     console.log(firstNum)
     console.log(secondNum);;
     switch (operator) {
         case '+':
-            $display.text(`${add(firstNum, secondNum)}`);
+            $display.val(`${add(firstNum, secondNum)}`);
             break;
         case '-':
-            $display.text(`${substract(firstNum, secondNum)}`);
+            $display.val(`${substract(firstNum, secondNum)}`);
             break;
-        case 'x':
-            $display.text(`${multiply(firstNum, secondNum)}`);
+        case '*':
+            $display.val(`${multiply(firstNum, secondNum)}`);
             break;
         case '/':
-            $display.text(`${divide(firstNum, secondNum)}`);
+            $display.val(`${divide(firstNum, secondNum)}`);
             break;
         default:
             break;
@@ -59,23 +62,23 @@ function calculate() {
 
 
 function add(a, b) {
-    return a + b;
+    return parseFloat(a + b).toFixed(2);
 }
 
 function substract(a, b) {
-    return a - b;
+    return parseFloat(a - b).toFixed(2);
 }
 
 function multiply(a, b) {
-    return a * b;
+    return parseFloat(a * b).toFixed(2);
 }
 
 function divide(a, b) {
-    return a / b;
+    return parseFloat(a / b).toFixed(2);
 }
 
 function reset() {
-    $display.text('0');
+    $display.val('0');
     firstNum = 0;
     secondNum = 0;
     operator = '';
@@ -85,7 +88,10 @@ function reset() {
 //Event listeners 
 $('.calcBody').on('click', '.numbers', setPlaceholder);
 
-$('.calcBody').on('click', '.actions', setNums);
+$('.calcBody').on('click', '.actions', function (e) {
+    operator = e.target.textContent;
+    setNums();
+});
 
 $('.calcBody').on('click', '.equals', calculate);
 
@@ -93,6 +99,14 @@ $('.calcBody').on('click', '.reset', reset);
 
 
 $('body').on('keypress', function (e) {
-    if(e.key.match('^[0-9]*$')) ;
-    else if (e.key.match('^[+|-|*|/]')) console.log("operator");
-})
+    if (e.key.match('^[0-9.]*$')) {
+        placeholderNum = placeholderNum + e.key;
+        $display.val(placeholderNum);
+    } else if (e.key.match('^[+|-|*|/]')) {
+        operator = e.key;
+        console.log(operator);
+        setNums();
+    }else if(e.keyCode === 13){
+        calculate();
+    };
+});
