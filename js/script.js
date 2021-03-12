@@ -15,6 +15,7 @@ let placeholderNum = '',
     operator = '';
 
 let $display = $('.display');
+let $chainingDisplay = $('.chaining');
 
 //functions 
 function setPlaceholder() {
@@ -25,8 +26,9 @@ function setPlaceholder() {
 function setNums() {
     firstNum = $display.text();
     $display.text('');
+    $chainingDisplay.text(`${placeholderNum} ${operator}`)
     placeholderNum = '';
-    $display.text(operator);
+    // $display.text(operator);
 }
 
 function calculate() {

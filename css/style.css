@@ -15,15 +15,24 @@ body {
     background-image: linear-gradient(to right, rgb(247, 246, 243), rgb(250, 229, 137));
 }
 
-.topHeader{
-    display: flex;
-    justify-content: center;
-    font-size: 10vw;
+header{
+    font-size: 60px;
     margin-bottom: 40px;
     background-color: black;
-    color: var(--actionsColor);
     padding: 10px;
     box-shadow: 5px 5px 5px rgb(245, 193, 193);
+}
+
+.topHeader {
+    max-width: 400px;
+    color: rgba(255,255,255,0.7);
+    font-size: 40px;
+}
+
+.topHeader2 {
+    max-width: 400px;
+    color: rgba(255,255,255, 1);
+    text-align: right;
 }
 
 .calcBody{
@@ -80,7 +89,7 @@ body {
 
 .chaining {
     height: 50px;
-    font-size: 40px;
+    font-size: 30px;
     color: rgba(255,255,255,0.6);
 }
 
