@@ -19,8 +19,6 @@ let placeholderNum = '',
 
 let $display = $('.display');
 let $chainingDisplay = $('.chaining');
-let chainingDisplayText = $chainingDisplay.text();
-let displayText = $display.text();
 
 //functions 
 function setPlaceholder() {
@@ -36,28 +34,26 @@ function setNums() {
 }
 
 function calculate() {
-    // placeholderNum = displayText;
     secondNum = $display.text();
-    chainingDisplayText = $chainingDisplay.text();
     switch (operator) {
         case '+':
-            $chainingDisplay.text(`${chainingDisplayText} ${$display.text()} =`);
+            $chainingDisplay.text(`${$chainingDisplay.text()} ${$display.text()} =`);
             $display.text(`${add(firstNum, secondNum)}`);
             break;
         case '-':
-            $chainingDisplay.text(`${chainingDisplayText} ${$display.text()} =`);
+            $chainingDisplay.text(`${$chainingDisplay.text()} ${$display.text()} =`);
             $display.text(`${substract(firstNum, secondNum)}`);
             break;
         case '*':
-            $chainingDisplay.text(`${chainingDisplayText} ${$display.text()} =`);
+            $chainingDisplay.text(`${$chainingDisplay.text()} ${$display.text()} =`);
             $display.text(`${multiply(firstNum, secondNum)}`);
             break;
         case '/':
-            $chainingDisplay.text(`${chainingDisplayText} ${$display.text()} =`);
+            $chainingDisplay.text(`${$chainingDisplay.text()} ${$display.text()} =`);
             $display.text(`${divide(firstNum, secondNum)}`);
             break;
         case '÷':
-            $chainingDisplay.text(`${chainingDisplayText} ${$display.text()} =`);
+            $chainingDisplay.text(`${$chainingDisplay.text()} ${$display.text()} =`);
             $display.text(`${divide(firstNum, secondNum)}`);
             break;
         default:
@@ -74,7 +70,7 @@ function add(a, b) {
 }
 
 function substract(a, b) {
-    return parseFloat(parseFloat(a) - parseFloat(b)).toFixed(2);
+    return parseFloat(a) - parseFloat(b);
 }
 
 function multiply(a, b) {
