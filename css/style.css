@@ -11,6 +11,10 @@
     font-family: 'Roboto', sans-serif;
 }
 
+body {
+    background-image: linear-gradient(to right, rgb(247, 246, 243), rgb(250, 229, 137));
+}
+
 .topHeader{
     display: flex;
     justify-content: center;
@@ -20,12 +24,6 @@
     color: var(--actionsColor);
     padding: 10px;
     box-shadow: 5px 5px 5px rgb(245, 193, 193);
-}
-
-.main {
-    /* border: 10px solid black; */
-    max-width: 420px;
-    border-radius: 2%;
 }
 
 .calcBody{
@@ -45,6 +43,10 @@
     height: 90px;
     cursor: pointer;
     font-size: 40px;
+}
+
+.span-two {
+    width: 200px;
 }
 
 .numbers:hover {
@@ -90,7 +92,7 @@
     background-color: var(--actionsColor);
 }
 
-.reset {
+.span-two {
     background-color: rgb(240, 138, 120);
     font-weight: bold;
 }
