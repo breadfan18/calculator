@@ -27,6 +27,7 @@ header{
     max-width: 400px;
     color: rgba(255,255,255,0.7);
     font-size: 40px;
+    text-align: right;
 }
 
 .topHeader2 {
@@ -37,10 +38,12 @@ header{
 
 .calcBody{
     display: flex;
-    max-width: 400px;
+    max-width: 403px;
     flex-direction: row;
     flex-wrap: wrap;
     font-size: 30px;
+    border: 1px solid black;
+
 }
 
 .buttons{
@@ -59,7 +62,7 @@ header{
 }
 
 .numbers:hover {
-    background-color: rgba(180, 175, 175, 0.7);
+    background-color: rgba(180, 175, 175, 0.6);
 }
 
 .actions:hover{

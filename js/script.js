@@ -6,6 +6,9 @@ Calculator logic
 - user then selects another number, 
 - when user click on = , we capture whats on display and store it
 - based on what action was selected, we invoke the fucntion that does the math. 
+
+Math chaining
+- 
 */
 
 //variables
@@ -16,28 +19,34 @@ let placeholderNum = '',
 
 let $display = $('.display');
 let $chainingDisplay = $('.chaining');
+let chainingDisplayText = $chainingDisplay.text();
+let displayText = $display.text();
 
 //functions 
 function setPlaceholder() {
     placeholderNum = (placeholderNum + $(this).text());
     $display.text(placeholderNum);
+    console.log(placeholderNum);
 }
 
 function setNums() {
     firstNum = $display.text();
     $display.text('');
-    $chainingDisplay.text(`${placeholderNum} ${operator}`)
+    $chainingDisplay.text(`${placeholderNum} ${operator}`);
     placeholderNum = '';
     // $display.text(operator);
 }
 
 function calculate() {
     secondNum = $display.text();
+    chainingDisplayText = $chainingDisplay.text();
     switch (operator) {
         case '+':
+            $chainingDisplay.text(`${chainingDisplayText} ${$display.text()}`);
             $display.text(`${add(firstNum, secondNum)}`);
             break;
         case '-':
+            $chainingDisplay.text(`${chainingDisplayText} ${$display.text()}`);
             $display.text(`${substract(firstNum, secondNum)}`);
             break;
         case '*':
