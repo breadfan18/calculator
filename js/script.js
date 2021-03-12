@@ -19,40 +19,37 @@ let $display = $('.display');
 //functions 
 function setPlaceholder() {
     placeholderNum = (placeholderNum + $(this).text());
-    $display.val(placeholderNum);
+    $display.text(placeholderNum);
 }
 
 function setNums() {
-    firstNum = $display.val();
-    $display.val('');
+    firstNum = $display.text();
+    $display.text('');
     placeholderNum = '';
-    $display.val(operator);
+    $display.text(operator);
 }
 
 function calculate() {
-    secondNum = $display.val();
-    console.log(firstNum)
-    console.log(secondNum);;
+    secondNum = $display.text();
     switch (operator) {
         case '+':
-            $display.val(`${add(firstNum, secondNum)}`);
+            $display.text(`${add(firstNum, secondNum)}`);
             break;
         case '-':
-            $display.val(`${substract(firstNum, secondNum)}`);
+            $display.text(`${substract(firstNum, secondNum)}`);
             break;
         case '*':
-            $display.val(`${multiply(firstNum, secondNum)}`);
+            $display.text(`${multiply(firstNum, secondNum)}`);
             break;
         case '/':
-            $display.val(`${divide(firstNum, secondNum)}`);
+            $display.text(`${divide(firstNum, secondNum)}`);
             break;
         case '÷':
-            $display.val(`${divide(firstNum, secondNum)}`);
+            $display.text(`${divide(firstNum, secondNum)}`);
             break;
         default:
             break;
     }
-
     firstNum = 0;
     secondNum = 0;
     placeholderNum = '';
@@ -76,7 +73,7 @@ function divide(a, b) {
 }
 
 function reset() {
-    $display.val('0');
+    $display.text('0');
     firstNum = 0;
     secondNum = 0;
     operator = '';
@@ -95,11 +92,10 @@ $('.calcBody').on('click', '.equals', calculate);
 
 $('.calcBody').on('click', '.reset', reset);
 
-
 $('body').on('keypress', function (e) {
     if (e.key.match('^[0-9.]*$')) {
         placeholderNum = placeholderNum + e.key;
-        $display.val(placeholderNum);
+        $display.text(placeholderNum);
     } else if (e.key.match('^[\-|+|*|/]')) {
         operator = e.key;
         setNums();
