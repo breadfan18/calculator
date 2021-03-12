@@ -26,36 +26,38 @@ let displayText = $display.text();
 function setPlaceholder() {
     placeholderNum = (placeholderNum + $(this).text());
     $display.text(placeholderNum);
-    console.log(placeholderNum);
 }
 
 function setNums() {
     firstNum = $display.text();
     $display.text('');
-    $chainingDisplay.text(`${placeholderNum} ${operator}`);
+    $chainingDisplay.text(`${firstNum} ${operator}`);
     placeholderNum = '';
-    // $display.text(operator);
 }
 
 function calculate() {
+    // placeholderNum = displayText;
     secondNum = $display.text();
     chainingDisplayText = $chainingDisplay.text();
     switch (operator) {
         case '+':
-            $chainingDisplay.text(`${chainingDisplayText} ${$display.text()}`);
+            $chainingDisplay.text(`${chainingDisplayText} ${$display.text()} =`);
             $display.text(`${add(firstNum, secondNum)}`);
             break;
         case '-':
-            $chainingDisplay.text(`${chainingDisplayText} ${$display.text()}`);
+            $chainingDisplay.text(`${chainingDisplayText} ${$display.text()} =`);
             $display.text(`${substract(firstNum, secondNum)}`);
             break;
         case '*':
+            $chainingDisplay.text(`${chainingDisplayText} ${$display.text()} =`);
             $display.text(`${multiply(firstNum, secondNum)}`);
             break;
         case '/':
+            $chainingDisplay.text(`${chainingDisplayText} ${$display.text()} =`);
             $display.text(`${divide(firstNum, secondNum)}`);
             break;
         case '÷':
+            $chainingDisplay.text(`${chainingDisplayText} ${$display.text()} =`);
             $display.text(`${divide(firstNum, secondNum)}`);
             break;
         default:
@@ -89,6 +91,7 @@ function reset() {
     secondNum = 0;
     operator = '';
     placeholderNum = '';
+    $chainingDisplay.text('');
 }
 
 //Event listeners 
