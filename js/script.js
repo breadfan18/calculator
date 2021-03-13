@@ -7,7 +7,10 @@ Calculator logic
 - when user click on = , we capture whats on display and store it
 - based on what action was selected, we invoke the fucntion that does the math. 
 
-Math chaining
+TO DOs
+- comma separators to numbers 
+- Grow display rows if numbers fill 
+- Longer math chaining
 - 
 */
 
@@ -23,6 +26,7 @@ let $chainingDisplay = $('.chaining');
 //functions 
 function setPlaceholder() {
     placeholderNum = (placeholderNum + $(this).text());
+    console.log(placeholderNum);
     $display.text(placeholderNum);
 }
 
