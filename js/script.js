@@ -8,6 +8,7 @@ Calculator logic
 - based on what action was selected, we invoke the fucntion that does the math. 
 
 TO DOs
+- delete button deletes last typed numbers on display 
 - comma separators to numbers 
 - Grow display rows if numbers fill 
 - Longer math chaining
@@ -26,8 +27,8 @@ let $chainingDisplay = $('.chaining');
 //functions 
 function setPlaceholder() {
     placeholderNum = (placeholderNum + $(this).text());
-    console.log(placeholderNum);
     $display.text(placeholderNum);
+    console.log(placeholderNum);
 }
 
 function setNums() {
@@ -109,7 +110,9 @@ $('.calcBody').on('click', '.reset', reset);
 $('body').on('keypress', function (e) {
     if (e.key.match('^[0-9.]*$')) {
         placeholderNum = placeholderNum + e.key;
-        $display.text(placeholderNum);
+        $display.text(placeholderNum); 
+    }
+    else if(e.keyCode === 46) {console.log("delete pressed")
     } else if (e.key.match('^[\-|+|*|/]')) {
         operator = e.key;
         setNums();
@@ -117,3 +120,5 @@ $('body').on('keypress', function (e) {
         calculate();
     };
 });
+
+
