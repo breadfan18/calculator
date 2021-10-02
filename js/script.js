@@ -24,6 +24,8 @@ let placeholderNum = '',
 let $display = $('.display');
 let $chainingDisplay = $('.chaining');
 
+
+
 //functions 
 function setPlaceholder() {
     placeholderNum = (placeholderNum + $(this).text());
