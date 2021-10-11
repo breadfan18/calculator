@@ -14,6 +14,17 @@ TO DOs
 - Longer math chaining
 */
 
+let firstVariable;
+firstVariable = "Hello World";
+firstVariable = 7;
+let secondVariable = firstVariable;
+secondVariable = "New String";
+
+console.log(firstVariable);
+console.log(secondVariable);
+//the value of first variable is still 7 since it wasn't changed since we assgined it to 7
+//the value of second variable is "New String", since it was changed AFTER it was initially assigned to the value of firstVariable (which was 7)
+
 //variables
 let placeholderNum = '',
     firstNum = 0,
