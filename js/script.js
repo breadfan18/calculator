@@ -12,7 +12,6 @@ TO DOs
 - comma separators to numbers 
 - Grow display rows if numbers fill 
 - Longer math chaining
-- 
 */
 
 //variables
